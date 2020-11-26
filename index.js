@@ -18,4 +18,9 @@ app.get("/:slug", async (req, res) => {
     res.json({ recipe });
   });
 
-app.listen("9000", () => console.log("server running on 9000"))
+  const PORT = process.env.PORT || 9000;
+  app.listen(PORT, () => {
+      console.log(`Our app is running on port ${ PORT }`);
+  });
+
+//app.listen("9000", () => console.log("server running on 9000"))
