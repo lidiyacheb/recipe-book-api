@@ -1,11 +1,15 @@
 const express = require("express")
 const app = express()
 const pg = require("pg")
+const path = require('path')
+
 
 var cors = require("cors");
 app.use(cors());
 
 const db = require("./data/db.js"); // importing the db config
+
+app.use('/static', express.static(path.join(__dirname, 'static')))
 
 app.get("/", async (req, res) => {
   const recipes = await db("recipes"); // making a query to get all recipes
